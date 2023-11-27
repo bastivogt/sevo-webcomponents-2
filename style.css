@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap");
 @import url("./normalize.css");
 @import url("./utils.css");
+@import url("./fonts/icons/entypo/css/entypo.css");
 
 * {
   box-sizing: border-box;
@@ -32,6 +33,40 @@ body {
 
 .topbar h2 {
   margin: 0;
+}
+
+#main-nav-trigger {
+  border-radius: none;
+  background-color: transparent;
+  border: 2px solid rebeccapurple;
+  color: rebeccapurple;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 2px 5px;
+  margin: 0;
+}
+
+#main-nav-trigger:hover {
+  color: white;
+  background-color: rebeccapurple;
+}
+
+#main-nav-offcanvas-right .close i {
+  font-size: 32px;
+}
+
+#main-nav-offcanvas-right .close {
+  color: #838383;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#main-nav-offcanvas-right .close:hover {
+  color: rebeccapurple;
+}
+
+#main-nav-trigger i {
+  font-size: 32px;
 }
 
 .main-navigation ul {
