@@ -50,9 +50,6 @@ class SevoIframe extends HTMLElement {
                 height: var(--height-small);
             }
         }
-
-
-
     `;
   }
 

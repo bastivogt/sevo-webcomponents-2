@@ -9,3 +9,4 @@ import "./sevo-offcanvas-left.js";
 import "./sevo-offcanvas-right.js";
 import "./sevo-inner.js";
 import "./sevo-iframe.js";
+import "./sevo-flex-container.js";
