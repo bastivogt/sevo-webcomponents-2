@@ -8,3 +8,4 @@ import "./sevo-4-columns.js";
 import "./sevo-offcanvas-left.js";
 import "./sevo-offcanvas-right.js";
 import "./sevo-inner.js";
+import "./sevo-iframe.js";
