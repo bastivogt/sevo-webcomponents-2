@@ -18,10 +18,10 @@ class SevoSection extends HTMLElement {
 
         :host {
             --background-color: inherit;
-            --padding: 75px 10px;
+            --padding: 75px 0px;
             --img-src: "";
-            --justify-content: flex-start;
-            --align-items: flex-start;
+            --justify-content: center;
+            --align-items: center;
             --height: inherit; 
             --color: inherit;
             --img-attachment: scroll;

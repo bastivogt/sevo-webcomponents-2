@@ -20,12 +20,23 @@ class SevoContentBox extends HTMLElement {
             --background-color: inherit;
             --padding: 10px;
             --color: inherit;
+            --max-width-large: 1200px;
         }
 
-        #content-box {
-            background-color: var(--background-color);
+        #container {
+            background-color: var(--background-color); 
             padding: var(--padding);
+   
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
             color: var(--color);
+        }
+
+        #inner {
+           max-width: var(--max-width-large);
+           width: 100%;
 
         }
     `;
@@ -36,8 +47,10 @@ class SevoContentBox extends HTMLElement {
         <style>
             ${this._style}
         </style>
-        <div id="content-box">
-            <slot></slot>
+        <div id="container">
+            <div id="inner">
+                <slot></slot>
+            </div>
         </div>
     `;
   }
