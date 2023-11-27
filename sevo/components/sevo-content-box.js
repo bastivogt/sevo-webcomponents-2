@@ -1,6 +1,6 @@
 "use strict";
 
-class SevoTopbar extends HTMLElement {
+class SevoContentBox extends HTMLElement {
   constructor() {
     super();
 
@@ -17,24 +17,15 @@ class SevoTopbar extends HTMLElement {
         }
 
         :host {
-            --background-color: white;
+            --background-color: inherit;
+            --padding: 10px;
             --color: inherit;
-            --box-shadow: 0px 15px 15px 0px rgba(0,0,0,0.2);
-            --padding: 20px 10px;
-            
         }
 
-        #topbar {
+        #content-box {
             background-color: var(--background-color);
-            box-shadow: var(--box-shadow);
-            width: 100%;
             padding: var(--padding);
             color: var(--color);
-
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
 
         }
     `;
@@ -45,17 +36,15 @@ class SevoTopbar extends HTMLElement {
         <style>
             ${this._style}
         </style>
-        <div id="topbar">
-            <div id="topbar-left"><slot name="left"></slot></div>
-            <div id="topbar-center"><slot name="center"></slot></div>
-            <div id="topbar-right"><slot name="right"></slot></div>
+        <div id="content-box">
+            <slot></slot>
         </div>
     `;
   }
 
   // observedAttribute
   static get observedAttributes() {
-    return [];
+    return ["background-color", "color", "padding"];
   }
 
   // attributeChangedCallback
@@ -75,6 +64,29 @@ class SevoTopbar extends HTMLElement {
   disconnectedCallback() {}
 
   // Properties
+  // background-color
+  get backgroundColor() {
+    return this.getAttribute("background-color");
+  }
+  set backgroundColor(value) {
+    this.setAttribute("background-color", value);
+  }
+
+  // color
+  get color() {
+    return this.getAttribute("color");
+  }
+  set color(value) {
+    this.setAttribute("color", value);
+  }
+
+  // padding
+  get padding() {
+    return this.getAttribute("padding");
+  }
+  set padding(value) {
+    this.setAttribute("padding", value);
+  }
 
   // CSS vars
   _getCssVar(name) {
@@ -87,7 +99,22 @@ class SevoTopbar extends HTMLElement {
   }
 
   // _render
-  _render() {}
+  _render() {
+    // background-color
+    if (this.backgroundColor) {
+      this._setCssVar("--background-color", this.backgroundColor);
+    }
+
+    // color
+    if (this.color) {
+      this._setCssVar("--color", this.color);
+    }
+
+    // padding
+    if (this.padding) {
+      this._setCssVar("--padding", this.padding);
+    }
+  }
 }
 
-customElements.define("sevo-topbar", SevoTopbar);
+customElements.define("sevo-content-box", SevoContentBox);

@@ -40,6 +40,7 @@ class SevoCard extends HTMLElement {
             margin: var(--margin);
             border-radius: var(--border-radius);
             
+            
         }
 
         #card-header {

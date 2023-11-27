@@ -10,6 +10,8 @@ body {
   font-family: "Open Sans", sans-serif;
   overflow-x: hidden;
   animation: fade-in-animation 0.9s ease forwards;
+  line-height: 1.6;
+  font-size: 18px;
 }
 
 @keyframes fade-in-animation {
@@ -22,8 +24,42 @@ body {
 }
 
 .topbar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  --background-color: white;
 }
 
 .topbar h2 {
   margin: 0;
+}
+
+.main-navigation ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.main-navigation a {
+  text-decoration: none;
+  padding: 2px;
+  display: block;
+  font-size: 24px;
+  color: white;
+  transform: translateX(0px);
+  transition: all 0.3s ease;
+}
+
+.main-navigation a:hover {
+  color: rebeccapurple;
+  transform: translateX(10px);
+}
+
+/* image-card */
+.image-card div[slot="content"] p {
+  display: inline-block;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 4.8em; /* (Number of lines you want visible) * (line-height) */
+  line-height: 1.6em;
 }

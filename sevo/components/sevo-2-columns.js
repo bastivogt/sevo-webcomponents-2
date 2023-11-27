@@ -1,6 +1,6 @@
 "use strict";
 
-class SevoSection extends HTMLElement {
+class Sevo2Columns extends HTMLElement {
   constructor() {
     super();
 
@@ -18,30 +18,29 @@ class SevoSection extends HTMLElement {
 
         :host {
             --background-color: inherit;
-            --padding: 75px 10px;
-            --img-src: "";
             --justify-content: flex-start;
-            --align-items: flex-start;
-            --height: inherit; 
-            --color: inherit;
-            --img-attachment: scroll;
+            --align-items: center;
+            --gap: 20px;
         }
 
-        #section {
+        #container {
             background-color: var(--background-color);
-            padding: var(--padding);
             display: flex;
             flex-direction: row;
+            gap: var(--gap);
             justify-content: var(--justify-content);
             align-items: var(--align-items);
-            height: var(--height);
-            color: var(--color);
+        }
 
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            background-attachment: var(--img-attachment);
-            background-image: var(--img-src);
+        .item {
+            width: 100%;
+            
+        }
+
+        @media only screen and (max-width: 768px) {
+            #container {
+                flex-direction: column;
+            }
         }
     `;
   }
@@ -51,26 +50,20 @@ class SevoSection extends HTMLElement {
         <style>
             ${this._style}
         </style>
-        <section id="section">
-            <div id="inner">
-                <slot></slot>
+        <div id="container">
+            <div class="item" id="column-1">
+                <slot name="column-1"></slot>
             </div>
-        </section>
+            <div class="item" id="column-2">
+                <slot name="column-2"></slot>
+            </div>
+        </div>
     `;
   }
 
   // observedAttribute
   static get observedAttributes() {
-    return [
-      "background-color",
-      "color",
-      "justify-content",
-      "align-items",
-      "height",
-      "img-src",
-      "img-attachment",
-      "padding",
-    ];
+    return ["background-color", "gap", "justify-content", "align-items"];
   }
 
   // attributeChangedCallback
@@ -90,6 +83,7 @@ class SevoSection extends HTMLElement {
   disconnectedCallback() {}
 
   // Properties
+  // opened
   // background-color
   get backgroundColor() {
     return this.getAttribute("background-color");
@@ -98,12 +92,12 @@ class SevoSection extends HTMLElement {
     this.setAttribute("background-color", value);
   }
 
-  // color
-  get color() {
-    return this.getAttribute("color");
+  // gap
+  get gap() {
+    return this.getAttribute("gap");
   }
-  set color(value) {
-    this.setAttribute("color", value);
+  set gap(value) {
+    this.setAttribute("gap", value);
   }
 
   // justify-content
@@ -114,44 +108,12 @@ class SevoSection extends HTMLElement {
     this.setAttribute("justify-content", value);
   }
 
-  // align-items
+  // alignItems
   get alignItems() {
     return this.getAttribute("align-items");
   }
   set alignItems(value) {
     this.setAttribute("align-items", value);
-  }
-
-  // height
-  get height() {
-    return this.getAttribute("height");
-  }
-  set height(value) {
-    this.setAttribute("height", value);
-  }
-
-  // img-src
-  get imgSrc() {
-    return this.getAttribute("img-src");
-  }
-  set imgSrc(value) {
-    this.setAttribute("img-src", value);
-  }
-
-  // img-attachment
-  get imgAttachment() {
-    return this.getAttribute("img-attachment");
-  }
-  set imgAttachment(value) {
-    this.setAttribute("img-attachment", value);
-  }
-
-  // padding
-  get padding() {
-    return this.getAttribute("padding");
-  }
-  set padding(value) {
-    this.setAttribute("padding", value);
   }
 
   // CSS vars
@@ -166,16 +128,14 @@ class SevoSection extends HTMLElement {
 
   // _render
   _render() {
-    // opened
-
     // background-color
     if (this.backgroundColor) {
       this._setCssVar("--background-color", this.backgroundColor);
     }
 
-    // color
-    if (this.color) {
-      this._setCssVar("--color", this.color);
+    // gap
+    if (this.gap) {
+      this._setCssVar("--gap", this.gap);
     }
 
     // justify-content
@@ -187,27 +147,7 @@ class SevoSection extends HTMLElement {
     if (this.alignItems) {
       this._setCssVar("--align-items", this.alignItems);
     }
-
-    // height
-    if (this.height) {
-      this._setCssVar("--height", this.height);
-    }
-
-    // img-src
-    if (this.imgSrc) {
-      this._setCssVar("--img-src", this.imgSrc);
-    }
-
-    // img-attachment
-    if (this.imgAttachment) {
-      this._setCssVar("--img-attachment", this.imgAttachment);
-    }
-
-    // padding
-    if (this.padding) {
-      this._setCssVar("--padding", this.padding);
-    }
   }
 }
 
-customElements.define("sevo-section", SevoSection);
+customElements.define("sevo-2-columns", Sevo2Columns);

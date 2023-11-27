@@ -91,7 +91,8 @@ export class SevoLightbox extends HTMLElement {
     super();
 
     this._root = this.attachShadow({ mode: "open" });
-    this._root.appendChild(template.content.cloneNode(true));
+    //this._root.appendChild(template.content.cloneNode(true));
+    this._root.innerHTML = this._template;
 
     this._elements = {
       backdrop: this._root.querySelector("#backdrop"),
@@ -103,6 +104,94 @@ export class SevoLightbox extends HTMLElement {
     this._fadeOutFinished = () => {};
   }
 
+  // style
+  get _style() {
+    return /*css*/ `
+      * {
+          box-sizing: border-box;
+      }
+
+      :host {
+          --background-color: rgba(0, 0, 0, .9);
+          --z-index: 999983;
+          --color: white;
+          --animation-time: .3s;
+      }
+
+      #backdrop {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+
+          background-color: var(--background-color);
+
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+
+          z-index: var(--z-index);
+      }
+
+      #close {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          color: var(--color);
+      }
+
+      #content {
+          color: var(--color);
+      }
+
+      .hidden {
+          display: none !important;
+      }
+
+
+      .fade-in {
+          animation: fade-in-animation var(--animation-time) ease forwards;
+      }
+
+      .fade-out {
+          animation: fade-out-animation var(--animation-time) ease forwards;
+      }
+
+
+      @keyframes fade-in-animation {
+          0% {
+              opacity: 0;
+          }
+          100% {
+              opacity: 1;
+          }
+      }
+
+      @keyframes fade-out-animation {
+          0% {
+              opacity: 1;
+          }
+          100% {
+              opacity: 0;
+          }
+      }
+    `;
+  }
+
+  //  _template
+  get _template() {
+    return /*html*/ `
+        <style>
+            ${this._style}
+        </style>
+      <div id="backdrop">
+        <div id="close"><slot name="close"><button>x</button></slot></div>
+        <div id="content"><slot name="content"></slot></div>
+      </div>
+    `;
+  }
   // Props
   // opened
   get opened() {

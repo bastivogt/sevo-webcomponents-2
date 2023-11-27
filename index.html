@@ -7,11 +7,51 @@
     <title>Sevo Components 2</title>
   </head>
   <body>
+    <sevo-section
+      padding="20px 10px"
+      background-color="rebeccapurple"
+      color="white"
+      justify-content="center"
+      align-items="center"
+    >
+      <h1>Sevo Components 2</h1>
+    </sevo-section>
     <sevo-topbar class="topbar">
       <div class="topbar-logo" slot="left"><h2>Logo</h2></div>
       <div class="topbar-slogan" slot="center"><h2>Slogan</h2></div>
-      <div class="topbar-menu-trigger" slot="right"><button>Menu</button></div>
+      <div class="topbar-menu-trigger" slot="right">
+        <button id="main-nav-trigger">Menu</button>
+      </div>
     </sevo-topbar>
+
+    <!-- sevo-light-box -->
+    <sevo-lightbox id="main-nav-lightbox" animated background-color="rgba(0, 0, 0, 0.99)">
+      <div slot="close"><button>x</button></div>
+      <div slot="content" class="main-navigation">
+        <nav>
+          <ul>
+            <li><a href="#" title="Home">Home</a></li>
+            <li><a href="#" title="About">About</a></li>
+            <li><a href="#" title="Team">Team</a></li>
+            <li><a href="#" title="Contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </sevo-lightbox>
+
+    <!-- sevo-offcanvas-left -->
+    <sevo-offcanvas-left id="main-nav-offcanvas-left" animated backdrop-close>
+        <div slot="content" class="main-navigation">
+            <nav>
+              <ul>
+                <li><a href="#" title="Home">Home</a></li>
+                <li><a href="#" title="About">About</a></li>
+                <li><a href="#" title="Team">Team</a></li>
+                <li><a href="#" title="Contact">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+    </sevo-offcanvas-left>
 
     <!-- sevo-section -->
     <sevo-section
@@ -27,6 +67,164 @@
     >
       <h1 class="text-shadow">Sevo Components 2</h1>
     </sevo-section>
+
+    <!-- sevo-content-box -->
+    <sevo-section background-color="rebeccapurple">
+      <sevo-content-box color="white" padding="30px">
+        <h2>Content Box</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. In facere
+          laudantium ipsam labore nihil quos aspernatur hic officiis iste
+          placeat voluptas nemo, itaque esse qui architecto assumenda animi
+          expedita magnam, delectus eos perferendis. Numquam, fuga rem
+          asperiores quae nesciunt rerum dolorem repellat facilis dolor aut quis
+          et ullam exercitationem soluta libero reiciendis hic odio excepturi
+          cum earum doloribus adipisci harum consequatur voluptas? Facilis dicta
+          harum rem quisquam! Qui laudantium sunt magnam aliquam ipsa sit
+          sapiente ut eius, officiis sed in cumque odit quis voluptatem odio
+          saepe, laboriosam consequuntur itaque nobis. Dolorum fugiat aliquam
+          sit molestiae nam totam eius dignissimos perferendis!
+        </p>
+      </sevo-content-box>
+    </sevo-section>
+
+    <!-- sevo-card columns-2 -->
+    <sevo-section background-color="#eee">
+      <sevo-2-columns gap="0">
+        <sevo-card class="image-card" slot="column-1">
+          <img slot="img" src="./images/bird-1045954_1920.jpg" />
+          <div slot="content">
+            <h3>Title 1</h3>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Distinctio, aliquid. Vitae magnam odio, eaque incidunt sunt in
+              cupiditate consequatur enim!
+            </p>
+          </div>
+          <div slot="footer">
+            <button>Mehr...</button>
+          </div>
+        </sevo-card>
+        <sevo-card class="image-card" slot="column-2">
+          <img slot="img" src="./images/avenue-2215317_1920.jpg" />
+          <div slot="content">
+            <h3>Title 2</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
+              cum libero maxime odit minus expedita ab, doloribus, quis corrupti
+              quasi suscipit esse? Iusto esse sit nihil incidunt perspiciatis
+              consequatur perferendis in voluptatum corporis. Cumque vero optio
+              aperiam sit? Blanditiis, maiores fugiat ut sunt placeat esse
+              repellat libero a ab tempora.
+            </p>
+          </div>
+          <div slot="footer">
+            <button>Mehr...</button>
+          </div>
+        </sevo-card>
+      </sevo-2-columns>
+    </sevo-section>
+
+    <!-- sevo-card columns-2 -->
+    <sevo-section>
+      <sevo-3-columns gap="0">
+        <sevo-card class="image-card" slot="column-1">
+          <img slot="img" src="./images/bird-1045954_1920.jpg" />
+          <div slot="content">
+            <h3>Title 1</h3>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Distinctio, aliquid. Vitae magnam odio, eaque incidunt sunt in
+              cupiditate consequatur enim!
+            </p>
+          </div>
+          <div slot="footer">
+            <button>Mehr...</button>
+          </div>
+        </sevo-card>
+        <sevo-card class="image-card" slot="column-2">
+          <img slot="img" src="./images/avenue-2215317_1920.jpg" />
+          <div slot="content">
+            <h3>Title 2</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
+              cum libero maxime odit minus expedita ab, doloribus, quis corrupti
+              quasi suscipit esse? Iusto esse sit nihil incidunt perspiciatis
+              consequatur perferendis in voluptatum corporis. Cumque vero optio
+              aperiam sit? Blanditiis, maiores fugiat ut sunt placeat esse
+              repellat libero a ab tempora.
+            </p>
+          </div>
+          <div slot="footer">
+            <button>Mehr...</button>
+          </div>
+        </sevo-card>
+        <sevo-card class="image-card" slot="column-3">
+          <img slot="img" src="./images/road-1072821_1920.jpg" />
+          <div slot="content">
+            <h3>Title 3</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
+              cum libero maxime odit minus expedita ab, doloribus, quis corrupti
+              quasi suscipit esse? Iusto esse sit nihil incidunt perspiciatis
+              consequatur perferendis in voluptatum corporis. Cumque vero optio
+              aperiam sit? Blanditiis, maiores fugiat ut sunt placeat esse
+              repellat libero a ab tempora.
+            </p>
+          </div>
+          <div slot="footer">
+            <button>Mehr...</button>
+          </div>
+        </sevo-card>
+      </sevo-3-columns>
+    </sevo-section>
+
+    <!-- sevo-4-columns-->
+    <sevo-section background-color="rebeccapurple" color="white">
+      <sevo-4-columns>
+        <div slot="column-1">
+          <h3>Column 1</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Reprehenderit quasi, temporibus facere accusantium consequatur quos
+            ad cum exercitationem, dolor dicta recusandae reiciendis inventore!
+            Cupiditate nihil sed minima soluta omnis beatae dolores ea eveniet.
+            Dolores suscipit corrupti voluptatem consectetur cumque dolorum.
+          </p>
+        </div>
+        <div slot="column-2">
+            <h3>Column 2</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Reprehenderit quasi, temporibus facere accusantium consequatur quos
+              ad cum exercitationem, dolor dicta recusandae reiciendis inventore!
+              Cupiditate nihil sed minima soluta omnis beatae dolores ea eveniet.
+              Dolores suscipit corrupti voluptatem consectetur cumque dolorum.
+            </p>
+          </div>
+        <div slot="column-3">
+          <h3>Column 3</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Reprehenderit quasi, temporibus facere accusantium consequatur quos
+            ad cum exercitationem, dolor dicta recusandae reiciendis inventore!
+            Cupiditate nihil sed minima soluta omnis beatae dolores ea eveniet.
+            Dolores suscipit corrupti voluptatem consectetur cumque dolorum.
+          </p>
+        </div>
+        <div slot="column-4">
+            <h3>Column 4</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Reprehenderit quasi, temporibus facere accusantium consequatur quos
+              ad cum exercitationem, dolor dicta recusandae reiciendis inventore!
+              Cupiditate nihil sed minima soluta omnis beatae dolores ea eveniet.
+              Dolores suscipit corrupti voluptatem consectetur cumque dolorum.
+            </p>
+          </div>
+      </sevo-4-columns>
+
+
     <script type="module" src="index.js"></script>
   </body>
 </html>
