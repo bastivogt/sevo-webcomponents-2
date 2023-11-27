@@ -26,7 +26,7 @@ class SevoCard extends HTMLElement {
 
         :host {
             --background-color: white;
-            --section-padding: 20px 10px;
+            --section-padding: 20px 20px;
             --border-color: #ddd;
             --box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.4);
             --margin: 20px;
