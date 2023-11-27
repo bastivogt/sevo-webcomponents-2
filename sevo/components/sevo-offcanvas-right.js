@@ -1,6 +1,6 @@
 "use strict";
 
-export class SevoOffcanvasLeft extends HTMLElement {
+export class SevoOffcanvasRight extends HTMLElement {
   constructor() {
     super();
 
@@ -44,7 +44,7 @@ export class SevoOffcanvasLeft extends HTMLElement {
 
             display: flex;
             flex-direction: row;
-            justify-content: flex-start;
+            justify-content: flex-end;
             
 
         }
@@ -52,7 +52,7 @@ export class SevoOffcanvasLeft extends HTMLElement {
         #close {
             position: absolute;
             top: 10px;
-            right: 10px;
+            left: 10px;
             color: var(--color);
         }
 
@@ -74,7 +74,7 @@ export class SevoOffcanvasLeft extends HTMLElement {
         }
 
         .closed {
-            transform: translateX(calc(0px - var(--width)));
+            transform: translateX(calc(var(--width)));
         }
 
         .hidden {
@@ -91,7 +91,7 @@ export class SevoOffcanvasLeft extends HTMLElement {
 
         @keyframes slide-in-animation {
             0% {
-                transform: translateX(calc(0px - var(--width)));
+                transform: translateX(calc(var(--width)));
             }
             100% {
                 transform: translateX(0px);
@@ -103,7 +103,7 @@ export class SevoOffcanvasLeft extends HTMLElement {
                 transform: translateX(0px);
             }
             100% {
-                transform: translateX(calc(0px - var(--width)));
+                transform: translateX(calc(var(--width)));
             }
         }
 
@@ -431,4 +431,4 @@ export class SevoOffcanvasLeft extends HTMLElement {
   }
 }
 
-customElements.define("sevo-offcanvas-left", SevoOffcanvasLeft);
+customElements.define("sevo-offcanvas-right", SevoOffcanvasRight);
