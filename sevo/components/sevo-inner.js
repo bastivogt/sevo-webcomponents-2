@@ -1,6 +1,6 @@
 "use strict";
 
-class SevoContentBox extends HTMLElement {
+class SevoInner extends HTMLElement {
   constructor() {
     super();
 
@@ -17,28 +17,22 @@ class SevoContentBox extends HTMLElement {
         }
 
         :host {
-            --background-color: inherit;
-            --padding: 10px;
+            --background-color: transparent;
+            --padding: 20px;
             --color: inherit;
-            --max-width-large: 1200px;
+            --max-width: 1200px;
         }
 
         #container {
             background-color: var(--background-color); 
             padding: var(--padding);
-   
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
             color: var(--color);
-        }
-
-        #inner {
-           max-width: var(--max-width-large);
-           width: 100%;
+            max-width: var(--max-width);
+            width: 100%;
+   
 
         }
+
     `;
   }
 
@@ -48,9 +42,7 @@ class SevoContentBox extends HTMLElement {
             ${this._style}
         </style>
         <div id="container">
-            <div id="inner">
-                <slot></slot>
-            </div>
+            <slot></slot>
         </div>
     `;
   }
@@ -130,4 +122,4 @@ class SevoContentBox extends HTMLElement {
   }
 }
 
-customElements.define("sevo-content-box", SevoContentBox);
+customElements.define("sevo-inner", SevoInner);

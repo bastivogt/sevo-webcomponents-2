@@ -21,7 +21,7 @@ class SevoSection extends HTMLElement {
             --padding: 75px 0px;
             --img-src: "";
             --justify-content: center;
-            --align-items: center;
+            --align-items: flex-start;
             --height: inherit; 
             --color: inherit;
             --img-attachment: scroll;

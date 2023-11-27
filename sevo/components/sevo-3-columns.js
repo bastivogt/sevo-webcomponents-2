@@ -17,7 +17,7 @@ class Sevo3Columns extends HTMLElement {
         }
 
         :host {
-            --background-color: inherit;
+            --background-color: transparent;
             --justify-content: flex-start;
             --align-items: center;
             --gap: 20px;

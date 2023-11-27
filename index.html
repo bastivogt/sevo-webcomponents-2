@@ -71,13 +71,15 @@
       img-attachment="fixed"
       padding="75px 40px"
     >
-      <h1 class="text-shadow">Sevo Components 2</h1>
+      <sevo-inner>
+        <h1 class="text-shadow">Sevo Components 2</h1>
+      </sevo-inner>
     </sevo-section>
 
-    <!-- sevo-content-box -->
+    <!-- sevo-inner -->
     <sevo-section background-color="rebeccapurple" color="white">
-      <sevo-content-box>
-        <h2>Content Box</h2>
+      <sevo-inner>
+        <h2>Section + Sevo Inner</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. In facere
           laudantium ipsam labore nihil quos aspernatur hic officiis iste
@@ -91,12 +93,12 @@
           saepe, laboriosam consequuntur itaque nobis. Dolorum fugiat aliquam
           sit molestiae nam totam eius dignissimos perferendis!
         </p>
-      </sevo-content-box>
+      </sevo-inner>
     </sevo-section>
 
     <!-- sevo-card columns-2 -->
     <sevo-section background-color="#eee">
-      <sevo-content-box>
+      <sevo-inner>
         <sevo-2-columns gap="0">
           <sevo-card class="image-card" slot="column-1">
             <img slot="img" src="./images/bird-1045954_1920.jpg" />
@@ -130,12 +132,12 @@
             </div>
           </sevo-card>
         </sevo-2-columns>
-      </sevo-content-box>
+      </sevo-inner>
     </sevo-section>
 
     <!-- sevo-card columns-3 -->
     <sevo-section>
-      <sevo-content-box>
+      <sevo-inner>
         <sevo-3-columns gap="0">
           <sevo-card class="image-card" slot="column-1">
             <img slot="img" src="./images/bird-1045954_1920.jpg" />
@@ -186,12 +188,12 @@
             </div>
           </sevo-card>
         </sevo-3-columns>
-      </sevo-content-box>
+      </sevo-inner>
     </sevo-section>
 
     <!-- sevo-4-columns-->
     <sevo-section background-color="rebeccapurple" color="white">
-      <sevo-content-box>
+      <sevo-inner>
         <sevo-4-columns>
           <div slot="column-1">
             <h3>Column 1</h3>
@@ -238,7 +240,7 @@
             </p>
           </div>
         </sevo-4-columns>
-      </sevo-content-box>
+      </sevo-inner>
     </sevo-section>
 
     <script type="module" src="index.js"></script>
