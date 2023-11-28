@@ -11,3 +11,4 @@ import "./sevo-inner.js";
 import "./sevo-iframe.js";
 import "./sevo-flex-container.js";
 import "./sevo-confirm.js";
+import "./sevo-title-desc.js";

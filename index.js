@@ -15,9 +15,9 @@ const mainNavOffcanvasRight = document.querySelector(
   "#main-nav-offcanvas-right"
 );
 mainNavTrigger.addEventListener("click", () => {
-  mainNavLightbox.open(mainNavLightbox.animated);
+  //mainNavLightbox.open(mainNavLightbox.animated);
   //mainNavOffcanvasLeft.open(mainNavOffcanvasLeft.animated);
-  //mainNavOffcanvasRight.open(mainNavOffcanvasRight.animated);
+  mainNavOffcanvasRight.open(mainNavOffcanvasRight.animated);
 });
 
 // lightbox
