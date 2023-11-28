@@ -19,17 +19,16 @@ class SevoInner extends HTMLElement {
         :host {
             --background-color: transparent;
             --padding: 20px;
-            --color: inherit;
-            --max-width: 1200px;
+
         }
 
         #container {
+          display: block;
             background-color: var(--background-color); 
             padding: var(--padding);
             color: var(--color);
             max-width: var(--max-width);
-            width: 100%;
-   
+ 
 
         }
 

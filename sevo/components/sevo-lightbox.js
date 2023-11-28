@@ -1,91 +1,5 @@
 "use strict";
 
-const template = document.createElement("template");
-template.innerHTML = /*html*/ `
-    <style>
-
-    * {
-        box-sizing: border-box;
-    }
-
-    :host {
-        --background-color: rgba(0, 0, 0, .9);
-        --z-index: 999983;
-        --color: white;
-        --animation-time: .3s;
-    }
-
-    #backdrop {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-
-        background-color: var(--background-color);
-
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-
-        z-index: var(--z-index);
-    }
-
-    #close {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        color: var(--color);
-    }
-
-    #content {
-        color: var(--color);
-    }
-
-    .hidden {
-        display: none !important;
-    }
-
-
-    .fade-in {
-        animation: fade-in-animation var(--animation-time) ease forwards;
-    }
-
-    .fade-out {
-        animation: fade-out-animation var(--animation-time) ease forwards;
-    }
-
-
-    @keyframes fade-in-animation {
-        0% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
-    }
-
-    @keyframes fade-out-animation {
-        0% {
-            opacity: 1;
-        }
-        100% {
-            opacity: 0;
-        }
-    }
-
-
-
-
-    </style>
-    
-    <div id="backdrop">
-        <div id="close"><slot name="close"><button>x</button></slot></div>
-        <div id="content"><slot name="content"></slot></div>
-    </div>
-`;
-
 export class SevoLightbox extends HTMLElement {
   constructor() {
     super();
@@ -239,7 +153,13 @@ export class SevoLightbox extends HTMLElement {
 
   // connectedCallback
   connectedCallback() {
-    //this.close(false);
+    this.close(false, true);
+    //this.close(false, true);
+    if (this.opened) {
+      this.open(this.animated);
+    } else {
+      this.close(false, true);
+    }
     this._render();
 
     // close
@@ -300,11 +220,11 @@ export class SevoLightbox extends HTMLElement {
 
   // _render
   _render() {
-    if (this.opened) {
+    /*     if (this.opened) {
       this.open(this.animated);
     } else {
       this.close(this.animated);
-    }
+    } */
   }
 
   // CSS vars
@@ -318,15 +238,17 @@ export class SevoLightbox extends HTMLElement {
   }
 
   // open
-  open(animated = true) {
+  open(animated = true, init = false) {
     if (animated) {
       this._elements.backdrop.classList.remove("hidden");
       document.body.style["overflow-y"] = "hidden";
       this._elements.backdrop.classList.remove("fade-out");
       this._elements.backdrop.classList.add("fade-in");
       this._fadeInFinished = () => {
-        this.opened = true;
-        this.dispatchEvent(new Event(SevoLightbox.events.LIGHTBOX_OPENED));
+        if (!init) {
+          this.opened = true;
+          this.dispatchEvent(new Event(SevoLightbox.events.LIGHTBOX_OPENED));
+        }
       };
 
       //this.opened = true;
@@ -334,29 +256,34 @@ export class SevoLightbox extends HTMLElement {
       this._elements.backdrop.classList.remove("hidden");
       document.body.style["overflow-y"] = "hidden";
       console.log("open na");
-      this.dispatchEvent(new Event(SevoLightbox.events.LIGHTBOX_OPENED));
-      //this.opened = true;
+      if (!init) {
+        this.dispatchEvent(new Event(SevoLightbox.events.LIGHTBOX_OPENED));
+        this.opened = true;
+      }
     }
   }
 
   // close
-  close(animated = true) {
+  close(animated = true, init = false) {
     if (animated) {
       this._elements.backdrop.classList.remove("fade-in");
       this._elements.backdrop.classList.add("fade-out");
-      document.body.style["overflow-y"] = "auto";
 
       this._fadeOutFinished = () => {
         this._elements.backdrop.classList.add("hidden");
         document.body.style["overflow-y"] = "auto";
-        this.opened = false;
-        this.dispatchEvent(new Event(SevoLightbox.events.LIGHTBOX_CLOSED));
+        if (!init) {
+          this.opened = false;
+          this.dispatchEvent(new Event(SevoLightbox.events.LIGHTBOX_CLOSED));
+        }
       };
     } else {
       this._elements.backdrop.classList.add("hidden");
       document.body.style["overflow-y"] = "auto";
-      this.dispatchEvent(new Event(SevoLightbox.events.LIGHTBOX_CLOSED));
-      //this.opened = false;
+      if (!init) {
+        this.dispatchEvent(new Event(SevoLightbox.events.LIGHTBOX_CLOSED));
+        this.opened = false;
+      }
     }
   }
 }

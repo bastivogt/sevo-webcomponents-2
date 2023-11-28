@@ -183,6 +183,9 @@ export class SevoOffcanvasRight extends HTMLElement {
   // connectedCallback
   connectedCallback() {
     this.close(false, true);
+    if (this.opened) {
+      this.open(this.animated);
+    }
     this._render();
 
     // slotClose
@@ -347,11 +350,11 @@ export class SevoOffcanvasRight extends HTMLElement {
   // _render
   _render() {
     // opened
-    if (this.opened) {
+    /*     if (this.opened) {
       this.open(this.animated);
     } else {
       this.close(this.animated);
-    }
+    } */
 
     // background-color
     if (this.backgroundColor) {

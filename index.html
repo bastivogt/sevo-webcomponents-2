@@ -26,13 +26,25 @@
       </div>
     </sevo-topbar>
 
+    <!-- sevo-confirm -->
+    <sevo-confirm animated backdrop-close>
+      <h3 slot="header">Sevo Confirm</h3>
+      <p slot="content">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo maiores
+        quo delectus sed iste facilis possimus molestias cumque ipsum quam magni
+        nobis quaerat vero, suscipit eligendi dicta voluptate natus consectetur?
+      </p>
+      <button slot="ok" class="ok-button">OK</button>
+      <button slot="cancel" class="cancel-button">Abrechen</button>
+    </sevo-confirm>
+
     <!-- sevo-light-box -->
     <sevo-lightbox
       id="main-nav-lightbox"
       animated
       background-color="rgba(0, 0, 0, 0.99)"
     >
-      <div slot="close"><button>x</button></div>
+      <div slot="close"><button class="inverted">x</button></div>
       <div slot="content" class="main-navigation">
         <nav>
           <ul>
@@ -57,6 +69,7 @@
           </ul>
         </nav>
       </div>
+      <div class="close" slot="close"><i class="icon-cancel"></i></div>
     </sevo-offcanvas-left>
 
     <!-- sevo-offcanvas-right -->
@@ -87,7 +100,13 @@
       padding="75px 40px"
     >
       <sevo-inner>
-        <h1 class="text-shadow">Sevo Components 2</h1>
+        <sevo-flex-container
+          justify-content-large="center"
+          justify-content-medium="center"
+          justify-content-small="center"
+        >
+          <h1 class="text-shadow">Sevo Components 2</h1>
+        </sevo-flex-container>
       </sevo-inner>
     </sevo-section>
 
@@ -275,6 +294,18 @@
           reprehenderit minima earum fugiat. Corporis a dolores excepturi,
           doloremque pariatur saepe eveniet iure perferendis laudantium labore
           fugit illo distinctio atque veritatis cumque modi? Tenetur!
+        </p>
+      </sevo-inner>
+    </sevo-section>
+
+    <!-- confirm open -->
+    <sevo-section background-color="rebeccapurple" color="white">
+      <sevo-inner>
+        <h2>Confirm Open</h2>
+        <p>
+          <button class="inverted" id="confirm-open-button">
+            Open Confirm
+          </button>
         </p>
       </sevo-inner>
     </sevo-section>

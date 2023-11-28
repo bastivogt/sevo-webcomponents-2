@@ -183,6 +183,9 @@ export class SevoOffcanvasLeft extends HTMLElement {
   // connectedCallback
   connectedCallback() {
     this.close(false, true);
+    if (this.opened) {
+      this.open(this.animated);
+    }
     this._render();
 
     // slotClose
@@ -347,11 +350,11 @@ export class SevoOffcanvasLeft extends HTMLElement {
   // _render
   _render() {
     // opened
-    if (this.opened) {
+    /*     if (this.opened) {
       this.open(this.animated);
     } else {
       this.close(this.animated);
-    }
+    } */
 
     // background-color
     if (this.backgroundColor) {
@@ -380,7 +383,7 @@ export class SevoOffcanvasLeft extends HTMLElement {
         if (!noEvents) {
           this.opened = true;
           this.dispatchEvent(
-            new Event(SevoOffcanvasRight.events.OFFCANVAS_OPENED)
+            new Event(SevoOffcanvasLeft.events.OFFCANVAS_OPENED)
           );
         }
       };
@@ -393,7 +396,7 @@ export class SevoOffcanvasLeft extends HTMLElement {
       if (!noEvents) {
         this.opened = true;
         this.dispatchEvent(
-          new Event(SevoOffcanvasRight.events.OFFCANVAS_OPENED)
+          new Event(SevoOffcanvasLeft.events.OFFCANVAS_OPENED)
         );
       }
     }
@@ -411,7 +414,7 @@ export class SevoOffcanvasLeft extends HTMLElement {
         if (!noEvents) {
           this.opened = false;
           this.dispatchEvent(
-            new Event(SevoOffcanvasRight.events.OFFCANVAS_CLOSED)
+            new Event(SevoOffcanvasLeft.events.OFFCANVAS_CLOSED)
           );
         }
       };
@@ -424,7 +427,7 @@ export class SevoOffcanvasLeft extends HTMLElement {
       if (!noEvents) {
         this.opened = false;
         this.dispatchEvent(
-          new Event(SevoOffcanvasRight.events.OFFCANVAS_CLOSED)
+          new Event(SevoOffcanvasLeft.events.OFFCANVAS_CLOSED)
         );
       }
     }

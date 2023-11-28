@@ -13,6 +13,7 @@ body {
   animation: fade-in-animation 0.9s ease forwards;
   line-height: 1.6;
   font-size: 18px;
+  overflow-x: hidden;
 }
 
 @keyframes fade-in-animation {
@@ -44,6 +45,21 @@ button:active {
   color: white;
 }
 
+button.inverted {
+  color: white;
+  border-color: white;
+}
+
+button.inverted:hover {
+  background-color: white;
+  color: rebeccapurple;
+}
+
+button.inverted:active {
+  color: rebeccapurple;
+  background-color: rgba(255, 255, 255, 0.671);
+}
+
 .topbar {
   position: sticky;
   top: 0;
@@ -71,17 +87,20 @@ button:active {
   background-color: rebeccapurple;
 }
 
-#main-nav-offcanvas-right .close i {
+#main-nav-offcanvas-right .close i,
+#main-nav-offcanvas-left .close i {
   font-size: 32px;
 }
 
-#main-nav-offcanvas-right .close {
+#main-nav-offcanvas-right .close,
+#main-nav-offcanvas-left .close {
   color: #838383;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-#main-nav-offcanvas-right .close:hover {
+#main-nav-offcanvas-right .close:hover,
+#main-nav-offcanvas-left .close:hover {
   color: rebeccapurple;
 }
 

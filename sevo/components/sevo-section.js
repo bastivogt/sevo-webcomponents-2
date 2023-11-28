@@ -25,6 +25,7 @@ class SevoSection extends HTMLElement {
             --height: inherit; 
             --color: inherit;
             --img-attachment: scroll;
+            --inner-width: 1200px;
         }
 
         #section {
@@ -43,6 +44,17 @@ class SevoSection extends HTMLElement {
             background-attachment: var(--img-attachment);
             background-image: var(--img-src);
         }
+
+        #inner {
+          max-width: var(--inner-width);
+          width: 100%;
+
+        }
+
+
+
+
+
     `;
   }
 
