@@ -7,7 +7,7 @@ import { SevoConfirm } from "./sevo/components/sevo-confirm.js";
 import "./sevo/components/init.js";
 import { SevoLightbox } from "./sevo/components/sevo-lightbox.js";
 
-import { SevoContentFilter } from "./sevo/utils/SevoFilter.js";
+import { SevoContentFilter } from "./sevo/utils/SevoContentFilter.js";
 
 console.log("index.js");
 
