@@ -26,6 +26,9 @@ class SevoSection extends HTMLElement {
             --color: inherit;
             --img-attachment: scroll;
             --inner-width: 1200px;
+            --overlay-background: none;
+            --overlay-opacity: 0;
+            --overlay-blend-mode: "normal";
         }
 
         #section {
@@ -43,19 +46,28 @@ class SevoSection extends HTMLElement {
             background-position: center;
             background-attachment: var(--img-attachment);
             background-image: var(--img-src);
+            position: relative;
+        }
+
+        #overlay {
+          background: var(--overlay-background);
+          opacity: var(--overlay-opacity);
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          z-index: 1;
+          mix-blend-mode: var(--overlay-blend-mode);
+
         }
 
         #inner {
           max-width: var(--inner-width);
           width: 100%;
           flex: 1 1 0;
-
+          z-index: 2;
         }
-
-
-
-
-
     `;
   }
 
@@ -65,9 +77,11 @@ class SevoSection extends HTMLElement {
             ${this._style}
         </style>
         <section id="section">
-            <div id="inner">
-                <slot></slot>
-            </div>
+          <div id="overlay"></div>
+              <div id="inner">
+                  <slot></slot>
+              </div>
+            
         </section>
     `;
   }
@@ -83,6 +97,9 @@ class SevoSection extends HTMLElement {
       "img-src",
       "img-attachment",
       "padding",
+      "overlay-background",
+      "overlay-opacity",
+      "overlay-blend-mode",
     ];
   }
 
@@ -167,6 +184,30 @@ class SevoSection extends HTMLElement {
     this.setAttribute("padding", value);
   }
 
+  // overlay-background
+  get overlayBackground() {
+    return this.getAttribute("overlay-background");
+  }
+  set overlayBackground(value) {
+    this.setAttribute("overlay-background", value);
+  }
+
+  // overlay-opacity
+  get overlayOpacity() {
+    return this.getAttribute("overlay-opacity");
+  }
+  set overlayOpacity(value) {
+    this.setAttribute("overlay-opacity", value);
+  }
+
+  // overlay-blend-mode
+  get overlayBlendMode() {
+    return this.getAttribute("overlay-blend-mode");
+  }
+  set overlayBlendMode(value) {
+    this.setAttribute("overlay-blend-mode", value);
+  }
+
   // CSS vars
   _getCssVar(name) {
     const styles = getComputedStyle(this);
@@ -219,6 +260,22 @@ class SevoSection extends HTMLElement {
     // padding
     if (this.padding) {
       this._setCssVar("--padding", this.padding);
+    }
+
+    // overlay-background
+    if (this.overlayBackground) {
+      this._setCssVar("--overlay-background", this.overlayBackground);
+    }
+
+    // overlay-opacity
+    if (this.overlayOpacity) {
+      console.log("opacity overlay");
+      this._setCssVar("--overlay-opacity", this.overlayOpacity);
+    }
+
+    // overlay-blend-mode
+    if (this.overlayBlendMode) {
+      this._setCssVar("--overlay-blend-mode", this.overlayBlendMode);
     }
   }
 }
