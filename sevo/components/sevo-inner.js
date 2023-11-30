@@ -19,6 +19,7 @@ class SevoInner extends HTMLElement {
         :host {
             --background-color: transparent;
             --padding: 20px;
+            --max-width: 1200px;
 
         }
 
@@ -28,8 +29,10 @@ class SevoInner extends HTMLElement {
             padding: var(--padding);
             color: var(--color);
             max-width: var(--max-width);
- 
+        }
 
+        #inner {
+          flex: 1 1 0;
         }
 
     `;
@@ -41,7 +44,9 @@ class SevoInner extends HTMLElement {
             ${this._style}
         </style>
         <div id="container">
+
             <slot></slot>
+
         </div>
     `;
   }

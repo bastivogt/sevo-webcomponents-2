@@ -48,6 +48,7 @@ class SevoSection extends HTMLElement {
         #inner {
           max-width: var(--inner-width);
           width: 100%;
+          flex: 1 1 0;
 
         }
 

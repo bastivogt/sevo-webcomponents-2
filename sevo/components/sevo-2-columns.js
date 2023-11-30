@@ -33,6 +33,7 @@ class Sevo2Columns extends HTMLElement {
         }
 
         .item {
+            flex: 1 1 0;
             width: 100%;
             
         }

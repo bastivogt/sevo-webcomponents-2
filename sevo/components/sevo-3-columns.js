@@ -34,6 +34,7 @@ class Sevo3Columns extends HTMLElement {
 
         .item {
             width: 100%;
+            flex: 1 1 0;
         }
 
         @media only screen and (max-width: 992px) {

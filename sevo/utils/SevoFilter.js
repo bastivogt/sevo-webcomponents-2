@@ -2,7 +2,7 @@
 
 export class SevoContentFilter {
   constructor(inputContentList, config = {}) {
-    this._inputStuffList = inputContentList;
+    this._inputContentList = inputContentList;
 
     this.activeClass = config.activeClass || "active";
     this.all = config.all || "All";
@@ -27,7 +27,7 @@ export class SevoContentFilter {
 
   _extractCategories() {
     const cat = new Set();
-    this._inputStuffList.forEach((item) => {
+    this._inputContentList.forEach((item) => {
       const categories = item.dataset[this.contentDataName].split(",");
       categories.forEach((category) => {
         cat.add(category);
@@ -74,7 +74,7 @@ export class SevoContentFilter {
 
   _filterContent(target) {
     const filter = target.dataset.filter;
-    this._inputStuffList.forEach((item) => {
+    this._inputContentList.forEach((item) => {
       if (filter === this.all) {
         item.removeAttribute("hidden");
         return;
