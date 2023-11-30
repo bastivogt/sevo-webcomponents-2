@@ -6,6 +6,9 @@ import { SevoConfirm } from "./sevo/components/sevo-confirm.js";
 
 import "./sevo/components/init.js";
 import { SevoLightbox } from "./sevo/components/sevo-lightbox.js";
+
+import { SevoContentFilter } from "./sevo/utils/SevoFilter.js";
+
 console.log("index.js");
 
 const mainNavTrigger = document.querySelector("#main-nav-trigger");
@@ -70,3 +73,19 @@ myConfirm.addEventListener(SevoConfirm.events.CONFIRM_OPENED, () => {
 myConfirm.addEventListener(SevoConfirm.events.CONFIRM_CLOSED, () => {
   console.log(SevoConfirm.events.CONFIRM_CLOSED);
 });
+
+// Filter
+const filterContent = document.querySelectorAll("[data-category]");
+const filterButtons = document.querySelector("#filter-buttons");
+
+const scf = new SevoContentFilter(filterContent, { all: "Alle" });
+
+filterButtons.appendChild(scf.buttonsContainer);
+
+scf.onComplete = function (target) {
+  console.log(target.categories);
+  target.filter(
+    document.querySelector(`button[data-filter='${target.categories[0]}']`)
+  );
+};
+scf.run();

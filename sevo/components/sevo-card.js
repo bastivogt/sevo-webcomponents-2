@@ -29,9 +29,11 @@ class SevoCard extends HTMLElement {
             --section-padding: 20px 20px;
             --border-color: #ddd;
             --box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.4);
-            --margin: 20px;
+            --margin: 30px;
             --border-radius: 4px;
             --aspect-ratio: 4 / 3;
+            --width: auto;
+            --max-width: inherit;
 
         }
 
@@ -40,6 +42,8 @@ class SevoCard extends HTMLElement {
             box-shadow: var(--box-shadow);
             margin: var(--margin);
             border-radius: var(--border-radius);
+            width: var(--width);
+            max-width: var(--max-width);
             
             
         }
@@ -139,6 +143,22 @@ class SevoCard extends HTMLElement {
     this.setAttribute("background-color", value);
   }
 
+  // width
+  get width() {
+    return this.getAttribute("width");
+  }
+  set width(value) {
+    this.setAttribute("width", value);
+  }
+
+  // max-width
+  get maxWidth() {
+    return this.getAttribute("max-width");
+  }
+  set maxWidth(value) {
+    this.setAttribute("max-width", value);
+  }
+
   // section-padding
   get sectionPadding() {
     return this.getAttribute("section-padding");
@@ -231,6 +251,16 @@ class SevoCard extends HTMLElement {
     // aspect-ratio
     if (this.aspectRatio) {
       this._setCssVar("--aspect-ratio", this.aspectRatio);
+    }
+
+    // width
+    if (this.width) {
+      this._setCssVar("--width", this.width);
+    }
+
+    // width
+    if (this.maxWidth) {
+      this._setCssVar("--max-width", this.maxWidth);
     }
   }
 }

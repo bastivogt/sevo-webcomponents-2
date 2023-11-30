@@ -35,7 +35,8 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+button:hover,
+button.active {
   background-color: rebeccapurple;
   color: white;
 }
@@ -136,4 +137,25 @@ button.inverted:active {
   overflow: hidden;
   max-height: 4.8em; /* (Number of lines you want visible) * (line-height) */
   line-height: 1.6em;
+}
+
+/* Filter */
+
+.filter-flex-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.filter-flex-container > sevo-card {
+  --max-width: 500px;
+}
+
+#filter-buttons button {
+  margin: 3px;
+}
+
+#filter-buttons {
+  display: flex;
+  justify-content: center;
 }

@@ -38,6 +38,7 @@ class SevoFLexContainer extends HTMLElement {
             flex-direction: var(--flex-direction-large);
             justify-content: var(--justify-content-large);
             align-items: var(--align-items-large);
+            flex-wrap: wrap;
         }
 
         @media only screen and (max-width: 768px) {
