@@ -29,7 +29,7 @@ class SevoCard extends HTMLElement {
             --section-padding: 20px 20px;
             --border-color: #ddd;
             --box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.4);
-            --margin: 30px;
+            --margin: 20px;
             --border-radius: 4px;
             --aspect-ratio: 4 / 3;
             --width: auto;
