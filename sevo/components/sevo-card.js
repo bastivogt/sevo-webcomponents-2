@@ -115,7 +115,16 @@ class SevoCard extends HTMLElement {
 
   // observedAttribute
   static get observedAttributes() {
-    return [];
+    return [
+      "background-color",
+      "width",
+      "max-width",
+      "section-padding",
+      "border-color",
+      "box-shadow",
+      "border-radius",
+      "aspect-ratio",
+    ];
   }
 
   // attributeChangedCallback
