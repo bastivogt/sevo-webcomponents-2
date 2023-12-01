@@ -28,7 +28,8 @@ class SevoSection extends HTMLElement {
             --inner-width: 1200px;
             --overlay-background: none;
             --overlay-opacity: 0;
-            --overlay-blend-mode: "normal";
+            --overlay-blend-mode: normal;
+            --overlay-attachment: scroll;
         }
 
         #section {
@@ -49,10 +50,13 @@ class SevoSection extends HTMLElement {
             position: relative;
         }
 
+
+
         #overlay {
           background: var(--overlay-background);
           opacity: var(--overlay-opacity);
           position: absolute;
+          background-attachment: var(--overlay-attachment);
           top: 0;
           left: 0;
           bottom: 0;
@@ -100,6 +104,7 @@ class SevoSection extends HTMLElement {
       "overlay-background",
       "overlay-opacity",
       "overlay-blend-mode",
+      "overlay-attachment",
     ];
   }
 
@@ -208,6 +213,14 @@ class SevoSection extends HTMLElement {
     this.setAttribute("overlay-blend-mode", value);
   }
 
+  // overlay-attachment
+  get overlayAttachment() {
+    return this.getAttribute("overlay-attachment");
+  }
+  set overlayAttachment(value) {
+    this.setAttribute("overlay-attachment", value);
+  }
+
   // CSS vars
   _getCssVar(name) {
     const styles = getComputedStyle(this);
@@ -276,6 +289,11 @@ class SevoSection extends HTMLElement {
     // overlay-blend-mode
     if (this.overlayBlendMode) {
       this._setCssVar("--overlay-blend-mode", this.overlayBlendMode);
+    }
+
+    // overlay-attachment
+    if (this.overlayAttachment) {
+      this._setCssVar("--overlay-attachment", this.overlayAttachment);
     }
   }
 }
