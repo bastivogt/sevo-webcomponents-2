@@ -60,7 +60,7 @@ class SevoLinkAnimated extends HTMLElement {
 
   // observedAttribute
   static get observedAttributes() {
-    return ["href", "title", "target"];
+    return ["href", "title", "target", "active"];
   }
 
   // attributeChangedCallback
@@ -80,6 +80,22 @@ class SevoLinkAnimated extends HTMLElement {
   disconnectedCallback() {}
 
   // Properties
+  // active
+  get active() {
+    const value = this.getAttribute("active");
+    if (value === "true" || value === "") {
+      return true;
+    } else {
+      return false;
+    }
+  }
+  set active(value) {
+    if (value === true) {
+      this.setAttribute("active", "");
+    } else {
+      this.removeAttribute("active");
+    }
+  }
   // href
   get href() {
     return this.getAttribute("href");
@@ -116,6 +132,13 @@ class SevoLinkAnimated extends HTMLElement {
 
   // _render
   _render() {
+    console.log("render");
+    // active
+    if (this.active) {
+      this._elements.link.classList.add("active");
+    } else {
+      this._elements.link.classList.remove("active");
+    }
     // href
     if (this.href) {
       this._elements.link.setAttribute("href", this.href);

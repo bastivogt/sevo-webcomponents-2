@@ -89,3 +89,21 @@ scf.onComplete = function (target) {
   );
 };
 scf.run();
+
+// sevo-link-animated
+const slaList = document.querySelectorAll("sevo-link-animated");
+
+slaList[0].active = true;
+console.log(slaList[0]);
+
+slaList.forEach((sla) => {
+  sla.addEventListener("click", (evt) => {
+    evt.stopPropagation();
+    evt.preventDefault();
+
+    slaList.forEach((item) => {
+      item.active = false;
+    });
+    sla.active = true;
+  });
+});
