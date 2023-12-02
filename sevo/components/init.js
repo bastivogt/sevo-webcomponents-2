@@ -13,3 +13,4 @@ import "./sevo-flex-container.js";
 import "./sevo-confirm.js";
 import "./sevo-title-desc.js";
 import "./sevo-image-card.js";
+import "./sevo-link-animated.js";
