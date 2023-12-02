@@ -35,6 +35,7 @@ class SevoLinkAnimated extends HTMLElement {
           transform: var(--transform-start);
           filter: var(--filter-start);
           transition: all var(--animation-time) ease;
+          text-decoration: none;
 
         }
 
@@ -44,6 +45,7 @@ class SevoLinkAnimated extends HTMLElement {
           filter: var(--filter-end);
 
         }
+
     `;
   }
 
@@ -132,7 +134,6 @@ class SevoLinkAnimated extends HTMLElement {
 
   // _render
   _render() {
-    console.log("render");
     // active
     if (this.active) {
       this._elements.link.classList.add("active");
