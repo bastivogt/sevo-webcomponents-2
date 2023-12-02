@@ -20,8 +20,8 @@ class SevoLinkAnimated extends HTMLElement {
 
         :host {
             --animation-time: .3s;
-            --transform-start: scale(.95);
-            --transform-end: scale(1);
+            --transform-start: scale(1);
+            --transform-end: scale(1.1);
             --filter-start: blur(3px);
             --filter-end: blur(0);
         }
@@ -52,12 +52,9 @@ class SevoLinkAnimated extends HTMLElement {
         <style>
             ${this._style}
         </style>
-        <div id="container">
-            <a id="link">
-                <slot></slot>
-            </a>
-
-        </div>
+          <a id="link">
+              <slot></slot>
+          </a>
     `;
   }
 
